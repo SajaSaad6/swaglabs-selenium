@@ -44,6 +44,7 @@ public class CheckoutTest extends BaseTest{
 	private void navigateToCheckoutForm() {
 		inventoryPage.addItem(InventoryTestData.AddItemsIDs.FLEECEJACKET);
 		inventoryPage.openCart();
+		cartPage.wiatForCartPage();
 		cartPage.clickCheckoutButton();
 	}
 	

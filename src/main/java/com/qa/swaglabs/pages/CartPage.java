@@ -36,4 +36,7 @@ public class CartPage extends BasePage{
 		wait.until(ExpectedConditions.elementToBeClickable(By.id(itemId))).click();
 	}
 	
+	public void wiatForCartPage() {
+		wait.until(ExpectedConditions.urlContains("cart"));
+	}
 }
