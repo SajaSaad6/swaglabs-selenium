@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Authentication Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Authentication Tests(failed)">
+    <groups>
+      <run>
+        <include name="authentication"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.qa.swaglabs.tests.LoginTest">
+        <methods>
+          <include name="testLoginWithValidCredential"/>
+          <include name="testLoginWithEmptyUsernameField"/>
+          <include name="testLoginWithInvalidCredential"/>
+          <include name="testLoginwithLockedUser"/>
+          <include name="testLoginWithEmptyPasswordField"/>
+          <include name="testLoginWithInvalidPassword"/>
+        </methods>
+      </class> <!-- com.qa.swaglabs.tests.LoginTest -->
+    </classes>
+  </test> <!-- Authentication Tests(failed) -->
+</suite> <!-- Failed suite [Authentication Test Suite] -->
