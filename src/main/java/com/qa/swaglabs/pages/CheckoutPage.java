@@ -40,4 +40,8 @@ public class CheckoutPage extends BasePage{
 	public String getSuccessMessage() {
     	return wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage)).getText();
     }
+	
+	public void waitForCheckoutInformationPage() {
+		wait.until(ExpectedConditions.urlContains("checkout-step-one"));
+	}
 }

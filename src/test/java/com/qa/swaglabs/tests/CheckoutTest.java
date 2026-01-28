@@ -46,6 +46,7 @@ public class CheckoutTest extends BaseTest{
 		inventoryPage.openCart();
 		cartPage.wiatForCartPage();
 		cartPage.clickCheckoutButton();
+		checkoutPage.waitForCheckoutInformationPage();
 	}
 	
 	
@@ -55,6 +56,7 @@ public class CheckoutTest extends BaseTest{
 				CheckoutTestData.ValidData.LASTNAME, 
 				CheckoutTestData.ValidData.ZIP
 				);	
+		cartPage.wiatForCartPage();
 		checkoutPage.clickContinueButton();
 	}
 
@@ -72,7 +74,7 @@ public class CheckoutTest extends BaseTest{
 	
 	@Test (description = "Verify user can fill checkout form with valid data"
 			)
-	public void testFillCheckoutForm() {
+	public void testCheckoutForm() {
 		navigateToCheckoutForm();
 		fillCheckoutFormWithValidData();
 		
@@ -142,6 +144,7 @@ public class CheckoutTest extends BaseTest{
 				CheckoutTestData.ValidData.ZIP);
 		
 		checkoutPage.clickContinueButton();
+		
 		Assert.assertEquals(checkoutPage.getErrorMessage(), 
 				CheckoutTestData.ErrorMessage.EMPTY_LAST_NAME_FIELD,
 				"System should prevent checkout and display validation error when last name is empty");
@@ -159,6 +162,7 @@ public class CheckoutTest extends BaseTest{
 				"");
 		
 		checkoutPage.clickContinueButton();
+		
 		Assert.assertEquals(checkoutPage.getErrorMessage(), 
 				CheckoutTestData.ErrorMessage.EMPTY_POSTAL_CODE_FIELD,
 				"System should prevent checkout and display validation error when Zip Code is empty");
