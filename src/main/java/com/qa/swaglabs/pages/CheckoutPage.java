@@ -20,17 +20,17 @@ public class CheckoutPage extends BasePage{
 	
 	//There is a better way to do it 
 	public void fillForm(String first, String last, String code) {
-		driver.findElement(firstName).sendKeys(first);
-		driver.findElement(lastName).sendKeys(last);
-		driver.findElement(postalCode).sendKeys(code);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(firstName)).sendKeys(first);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lastName)).sendKeys(last);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(postalCode)).sendKeys(code);
 	}
 	
 	public void clickContinueButton() {
-		driver.findElement(continueButton).click();
+		wait.until(ExpectedConditions.elementToBeClickable(continueButton)).click();
 	}
 	
 	public void clickCancelButton() {
-		driver.findElement(cancelButton).click();
+		wait.until(ExpectedConditions.elementToBeClickable(cancelButton)).click();
 	}
 	
 	public String getErrorMessage() {
@@ -38,6 +38,6 @@ public class CheckoutPage extends BasePage{
 	}
 	
 	public String getSuccessMessage() {
-    	return driver.findElement(successMessage).getText();
+    	return wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage)).getText();
     }
 }

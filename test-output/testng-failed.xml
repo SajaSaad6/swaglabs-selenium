@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.qa.swaglabs.tests.CheckoutTest">
+      <class name="com.qa.swaglabs.tests.PLPTest">
         <methods>
           <include name="setup"/>
-          <include name="testTeardown"/>
+          <include name="testAddProductFromPDP"/>
           <include name="tearDown"/>
-          <include name="fillCheckoutForm"/>
+          <include name="teardown"/>
           <include name="testSetup"/>
         </methods>
-      </class> <!-- com.qa.swaglabs.tests.CheckoutTest -->
+      </class> <!-- com.qa.swaglabs.tests.PLPTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

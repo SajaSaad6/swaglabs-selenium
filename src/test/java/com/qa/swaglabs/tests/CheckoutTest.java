@@ -71,7 +71,7 @@ public class CheckoutTest extends BaseTest{
 	
 	@Test (description = "Verify user can fill checkout form with valid data"
 			)
-	public void fillCheckoutForm() {
+	public void testFillCheckoutForm() {
 		navigateToCheckoutForm();
 		fillCheckoutFormWithValidData();
 		

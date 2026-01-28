@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CartPage extends BasePage{
 
@@ -19,20 +20,20 @@ public class CartPage extends BasePage{
 	
 	
 	public void continueShopping() {
-		driver.findElement(continueShoppingButton);
+		wait.until(ExpectedConditions.elementToBeClickable(continueShoppingButton)).click();
 	}
 	
 	public void clickCheckoutButton() {
-		driver.findElement(checkoutButton).click();
+		wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)).click();
 	}
 	
 	public List<WebElement> getProductsInCart() {
-		
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(productCard));
 		return driver.findElements(productCard);
 	}
 	
 	public void removeProductFromCart(String itemId) {
-		driver.findElement(By.id(itemId)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(itemId))).click();
 	}
 	
 }

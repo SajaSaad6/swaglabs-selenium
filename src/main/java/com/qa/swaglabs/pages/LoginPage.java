@@ -2,6 +2,7 @@ package com.qa.swaglabs.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class LoginPage extends BasePage{
@@ -16,21 +17,21 @@ public class LoginPage extends BasePage{
 	}
 	
 	public void enterUsername(String name) {
-		driver.findElement(usernameField).sendKeys(name);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField)).sendKeys(name);
 	}
 	
 	public void enterPassword(String password) {
-		driver.findElement(passwordField).sendKeys(password);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(passwordField)).sendKeys(password);
 	}
 	
 	public void login(String username, String password) {
 		enterUsername(username);
 		enterPassword(password);
-		driver.findElement(loginButton).click();
+		wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
 	}
 	
 	public String getErrorMessage() {
-		return driver.findElement(errorMessage).getText();
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessage)).getText();
 	}
 	
 	

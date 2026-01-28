@@ -2,6 +2,7 @@ package com.qa.swaglabs.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CheckoutCompletePage extends BasePage {
 
@@ -13,12 +14,12 @@ public class CheckoutCompletePage extends BasePage {
 	private By backHomeButton = By.id("back-to-products");
 	
 	public String getConfirmationMessage() {
-		return driver.findElement(thankMessage).getText();
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(thankMessage)).getText();
 		
 	}
 	
 	public void clickBackHomeButton() {
-		driver.findElement(backHomeButton).click();
+		wait.until(ExpectedConditions.elementToBeClickable(backHomeButton)).click();
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 public class InventoryPage extends BasePage{
@@ -28,7 +29,7 @@ public class InventoryPage extends BasePage{
 		
 	
 	public void resetAppState() {
-		driver.findElement(burgerMenuButton).click();
+		wait.until(ExpectedConditions.elementToBeClickable(burgerMenuButton)).click();
 		wait.until(org.openqa.selenium.support.ui.ExpectedConditions
 	            .elementToBeClickable(resetButton)).click();
 	}
@@ -44,7 +45,7 @@ public class InventoryPage extends BasePage{
 	}
 	
 	public void openCart() {
-		driver.findElement(cartButton).click();
+		wait.until(ExpectedConditions.elementToBeClickable(cartButton)).click();
 	}
 	
 	public void sortByValue(String value) {
@@ -52,12 +53,12 @@ public class InventoryPage extends BasePage{
 	}
 	
 	public List<WebElement> getProducts() {	
-		return driver.findElements(product);
+		return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(product));
 	}
 	
 	
 	public List<String> getAllProductNames() {		
-		List<WebElement> cards = driver.findElements(productCard);
+		List<WebElement> cards = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(productCard));
 		List<String> productNamesList = new ArrayList<>();
 		
 		for (WebElement card : cards) {
@@ -70,7 +71,7 @@ public class InventoryPage extends BasePage{
 	
 	public List<Double> getAllProductPrices() {
 		
-		List<WebElement> cards = driver.findElements(productCard);
+		List<WebElement> cards = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(productCard));
 		List<Double> productPricesList = new ArrayList<>();
 		
 		for (WebElement card : cards) {

@@ -2,6 +2,7 @@ package com.qa.swaglabs.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductDetailPage extends BasePage{
 
@@ -17,23 +18,23 @@ public class ProductDetailPage extends BasePage{
 		
 	
 	public void backToProducts() {
-		driver.findElement(backToProductsButton).click();
+		wait.until(ExpectedConditions.elementToBeClickable(backToProductsButton)).click();
 	}
 	
 	public String getProductName() {
-		return driver.findElement(productName).getText();
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(productName)).getText();
 	}
 
 	public String getProductDetail() {
-		return driver.findElement(productDetail).getText();
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(productDetail)).getText();
 	}
 	
 	public Double getProductPrice() {
-		return Double.parseDouble(driver.findElement(productPrice).getText());
+		return Double.parseDouble(wait.until(ExpectedConditions.visibilityOfElementLocated(productPrice)).getText());
 	}
 	
 	public void addProductToCart() {
-		driver.findElement(addToCartButton).click();
+		wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
 	}
 	
 }

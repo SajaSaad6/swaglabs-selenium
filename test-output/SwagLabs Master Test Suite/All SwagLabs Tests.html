@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>22/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jan 27 12:58:56 CET 2026</td>
+<td>Started on:</td><td>Wed Jan 28 10:54:59 CET 2026</td>
 </tr>
-<tr><td>Total time:</td><td>30 seconds (30837 ms)</td>
+<tr><td>Total time:</td><td>39 seconds (39737 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,58 +76,29 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.qa.swaglabs.tests.CheckoutTest.fillCheckoutForm()'><b>fillCheckoutForm</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify user can fill checkout form with valid data</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#first\-name&quot;}
-  (Session info: chrome=144.0.7559.97)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+<td title='com.qa.swaglabs.tests.PLPTest.testAddProductFromPDP()'><b>testAddProductFromPDP</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify user can add a product to the cart from PDP</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of any elements located by By.cssSelector: [data-test=&apos;shopping-cart-badge&apos;] (tried for 10 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
 System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;26.0.1&apos;, java.version: &apos;21.0.8&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [599eba1a9b3d4a8414d8a4fffb875fd2, findElement {value=first-name, using=id}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.97, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: /var/folders/7p/hrnbqj5130z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57554}, goog:processID: 31369, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:57554/devtoo..., se:cdpVersion: 144.0.7559.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 599eba1a9b3d4a8414d8a4fffb875fd2
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
-	at com.qa.swaglabs.pages.CheckoutPage.fillForm(CheckoutPage.java:23)
-	at com.qa.swaglabs.tests.CheckoutTest.fillCheckoutFormWithValidData(CheckoutTest.java:53)
-	at com.qa.swaglabs.tests.CheckoutTest.fillCheckoutForm(CheckoutTest.java:76)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.97, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: /var/folders/7p/hrnbqj5130z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55328}, goog:processID: 53174, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55328/devtoo..., se:cdpVersion: 144.0.7559.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 62a06f5ceaf02d09cac4e660425b5044
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.qa.swaglabs.pages.InventoryPage.getCartBadgeCount(InventoryPage.java:43)
+	at com.qa.swaglabs.tests.PLPTest.testAddProductFromPDP(PLPTest.java:138)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1794314439", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1794314439'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#first\-name&quot;}
-  (Session info: chrome=144.0.7559.97)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace303805531", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace303805531'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of any elements located by By.cssSelector: [data-test=&apos;shopping-cart-badge&apos;] (tried for 10 second(s) with 500 milliseconds interval)
 Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
 System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;26.0.1&apos;, java.version: &apos;21.0.8&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [599eba1a9b3d4a8414d8a4fffb875fd2, findElement {value=first-name, using=id}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.97, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: /var/folders/7p/hrnbqj5130z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57554}, goog:processID: 31369, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:57554/devtoo..., se:cdpVersion: 144.0.7559.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 599eba1a9b3d4a8414d8a4fffb875fd2
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
-	at com.qa.swaglabs.pages.CheckoutPage.fillForm(CheckoutPage.java:23)
-	at com.qa.swaglabs.tests.CheckoutTest.fillCheckoutFormWithValidData(CheckoutTest.java:53)
-	at com.qa.swaglabs.tests.CheckoutTest.fillCheckoutForm(CheckoutTest.java:76)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 144.0.7559.97, chrome: {chromedriverVersion: 144.0.7559.96 (d7b80622cfab..., userDataDir: /var/folders/7p/hrnbqj5130z...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55328}, goog:processID: 53174, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55328/devtoo..., se:cdpVersion: 144.0.7559.97, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 62a06f5ceaf02d09cac4e660425b5044
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.qa.swaglabs.pages.InventoryPage.getCartBadgeCount(InventoryPage.java:43)
+	at com.qa.swaglabs.tests.PLPTest.testAddProductFromPDP(PLPTest.java:138)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -155,8 +126,8 @@ Session ID: 599eba1a9b3d4a8414d8a4fffb875fd2
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 </pre></div></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.CheckoutTest@367ffa75</td></tr>
+<td>10</td>
+<td>com.qa.swaglabs.tests.PLPTest@62ddbd7e</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -167,115 +138,115 @@ Session ID: 599eba1a9b3d4a8414d8a4fffb875fd2
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.qa.swaglabs.tests.LoginTest.testLoginWithEmptyUsernameField()'><b>testLoginWithEmptyUsernameField</b><br>Test class: com.qa.swaglabs.tests.LoginTest<br>Test method: Verify login fails with empty username</td>
+<td title='com.qa.swaglabs.tests.CheckoutTest.testCheckoutWithEmptyFirstName()'><b>testCheckoutWithEmptyFirstName</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify checkout fails when first name is empty</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.CheckoutTest@74e52ef6</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.CheckoutTest.testCheckoutWithEmptyCart()'><b>testCheckoutWithEmptyCart</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify checkout button behavior with empty cart</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.CheckoutTest@74e52ef6</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.CheckoutTest.testProceedToCheckoutForm()'><b>testProceedToCheckoutForm</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify user can proceed to checkout form from cart</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.CheckoutTest@74e52ef6</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.LoginTest.testLoginWithEmptyUsernameField()'><b>testLoginWithEmptyUsernameField</b><br>Test class: com.qa.swaglabs.tests.LoginTest<br>Test method: Verify login fails when username field is empty</td>
 <td></td>
 <td>0</td>
 <td>com.qa.swaglabs.tests.LoginTest@30c15d8b</td></tr>
 <tr>
-<td title='com.qa.swaglabs.tests.CheckoutTest.testOrderTotalCalculation()'><b>testOrderTotalCalculation</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify order total calculation is correct on overview page</td>
+<td title='com.qa.swaglabs.tests.PLPTest.testOpenPDP()'><b>testOpenPDP</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify user can navigate to product detail page</td>
 <td></td>
 <td>0</td>
-<td>com.qa.swaglabs.tests.CheckoutTest@367ffa75</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.CheckoutTest.testCompleteOrder()'><b>testCompleteOrder</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify user can complete order succcessfully</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.CheckoutTest@367ffa75</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.PLPTest.openCart()'><b>openCart</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify user can navigate to the cart page</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.PLPTest@2cd76f31</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.CheckoutTest.testCheckoutWithEmptyCart()'><b>testCheckoutWithEmptyCart</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verfiy checkout button behavior with empty cart</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.CheckoutTest@367ffa75</td></tr>
+<td>com.qa.swaglabs.tests.PLPTest@62ddbd7e</td></tr>
 <tr>
 <td title='com.qa.swaglabs.tests.CheckoutTest.testCheckoutWithEmptyLastName()'><b>testCheckoutWithEmptyLastName</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify checkout fails when last name is empty</td>
 <td></td>
 <td>0</td>
-<td>com.qa.swaglabs.tests.CheckoutTest@367ffa75</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.PLPTest.sortByNameA_Z()'><b>sortByNameA_Z</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify sort products by name in ascending alphabetical oreder (A to Z)</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.PLPTest@2cd76f31</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.CheckoutTest.testCheckoutWithEmptyFirstName()'><b>testCheckoutWithEmptyFirstName</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify checkout fails when first name is empty</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.CheckoutTest@367ffa75</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.CheckoutTest.testReturnToHomepageAfterOrder()'><b>testReturnToHomepageAfterOrder</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify user can return to homepage after completing order</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.CheckoutTest@367ffa75</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.PLPTest.removeProductFromCart()'><b>removeProductFromCart</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify user can remove a product by clicking remove button</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.PLPTest@2cd76f31</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.CheckoutTest.testCheckoutWithEmptyZip()'><b>testCheckoutWithEmptyZip</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify checkout fails when Zip Code is empty</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.CheckoutTest@367ffa75</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.PLPTest.openPDP()'><b>openPDP</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify user can navigate to product detail page</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.PLPTest@2cd76f31</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.PLPTest.pageLoadsCorrectly()'><b>pageLoadsCorrectly</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify product list page loads correctly</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.PLPTest@2cd76f31</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.LoginTest.testLoginWithValidCredential()'><b>testLoginWithValidCredential</b><br>Test class: com.qa.swaglabs.tests.LoginTest<br>Test method: Verify sucessful login with valid credentials</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.LoginTest@30c15d8b</td></tr>
-<tr>
-<td title='com.qa.swaglabs.tests.PLPTest.addProductFromPDP()'><b>addProductFromPDP</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify user can add a product to the cart from PDP</td>
-<td></td>
-<td>0</td>
-<td>com.qa.swaglabs.tests.PLPTest@2cd76f31</td></tr>
+<td>com.qa.swaglabs.tests.CheckoutTest@74e52ef6</td></tr>
 <tr>
 <td title='com.qa.swaglabs.tests.LoginTest.testLoginWithInvalidPassword()'><b>testLoginWithInvalidPassword</b><br>Test class: com.qa.swaglabs.tests.LoginTest<br>Test method: Verify login fails with invalid password</td>
 <td></td>
 <td>0</td>
 <td>com.qa.swaglabs.tests.LoginTest@30c15d8b</td></tr>
 <tr>
-<td title='com.qa.swaglabs.tests.LoginTest.testLoginwithLockedUser()'><b>testLoginwithLockedUser</b><br>Test class: com.qa.swaglabs.tests.LoginTest<br>Test method: Verify blocked user can't login</td>
+<td title='com.qa.swaglabs.tests.PLPTest.testOpenCart()'><b>testOpenCart</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify user can navigate to the cart page</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.PLPTest@62ddbd7e</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.CheckoutTest.testCompleteOrder()'><b>testCompleteOrder</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify user can complete order succcessfully</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.CheckoutTest@74e52ef6</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.CheckoutTest.testCheckoutWithEmptyZip()'><b>testCheckoutWithEmptyZip</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify checkout fails when Zip Code is empty</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.CheckoutTest@74e52ef6</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.LoginTest.testLoginWithValidCredentials()'><b>testLoginWithValidCredentials</b><br>Test class: com.qa.swaglabs.tests.LoginTest<br>Test method: Verify sucessful login with valid credentials</td>
 <td></td>
 <td>0</td>
 <td>com.qa.swaglabs.tests.LoginTest@30c15d8b</td></tr>
 <tr>
-<td title='com.qa.swaglabs.tests.PLPTest.addProductToCart()'><b>addProductToCart</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify user can add a product to the cart from the Products List Page</td>
+<td title='com.qa.swaglabs.tests.PLPTest.testInventoryPageLoadsCorrectly()'><b>testInventoryPageLoadsCorrectly</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify product list page loads correctly</td>
 <td></td>
 <td>0</td>
-<td>com.qa.swaglabs.tests.PLPTest@2cd76f31</td></tr>
+<td>com.qa.swaglabs.tests.PLPTest@62ddbd7e</td></tr>
 <tr>
-<td title='com.qa.swaglabs.tests.LoginTest.testLoginWithEmptyPasswordField()'><b>testLoginWithEmptyPasswordField</b><br>Test class: com.qa.swaglabs.tests.LoginTest<br>Test method: Verify login fails with empty password</td>
+<td title='com.qa.swaglabs.tests.PLPTest.testSortByPrice_Low()'><b>testSortByPrice_Low</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify sort products by price in ascending oreder (High to Low)</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.PLPTest@62ddbd7e</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.PLPTest.testAddProductToCart()'><b>testAddProductToCart</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify user can add a product to the cart from the Products List Page</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.PLPTest@62ddbd7e</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.CheckoutTest.testOrderTotalCalculation()'><b>testOrderTotalCalculation</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify order total calculation is correct on overview page</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.CheckoutTest@74e52ef6</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.LoginTest.testLoginWithEmptyPasswordField()'><b>testLoginWithEmptyPasswordField</b><br>Test class: com.qa.swaglabs.tests.LoginTest<br>Test method: Verify login fails password field is empty</td>
 <td></td>
 <td>0</td>
 <td>com.qa.swaglabs.tests.LoginTest@30c15d8b</td></tr>
 <tr>
-<td title='com.qa.swaglabs.tests.PLPTest.sortByPrice_Low()'><b>sortByPrice_Low</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify sort products by price in ascending oreder (High to Low)</td>
+<td title='com.qa.swaglabs.tests.PLPTest.testRemoveProductFromCart()'><b>testRemoveProductFromCart</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify user can remove a product by clicking remove button</td>
 <td></td>
 <td>0</td>
-<td>com.qa.swaglabs.tests.PLPTest@2cd76f31</td></tr>
+<td>com.qa.swaglabs.tests.PLPTest@62ddbd7e</td></tr>
 <tr>
-<td title='com.qa.swaglabs.tests.LoginTest.testLoginWithInvalidCredential()'><b>testLoginWithInvalidCredential</b><br>Test class: com.qa.swaglabs.tests.LoginTest<br>Test method: Verify login fails with invalid credentials</td>
+<td title='com.qa.swaglabs.tests.CheckoutTest.testReturnToHomepageAfterOrder()'><b>testReturnToHomepageAfterOrder</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify user can return to homepage after completing order</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.CheckoutTest@74e52ef6</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.LoginTest.testLoginWithLockedUser()'><b>testLoginWithLockedUser</b><br>Test class: com.qa.swaglabs.tests.LoginTest<br>Test method: Verify blocked user can't login</td>
 <td></td>
 <td>0</td>
 <td>com.qa.swaglabs.tests.LoginTest@30c15d8b</td></tr>
 <tr>
-<td title='com.qa.swaglabs.tests.CheckoutTest.testProceedToCheckoutForm()'><b>testProceedToCheckoutForm</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify user can proceed to checkout form from cart</td>
+<td title='com.qa.swaglabs.tests.PLPTest.testSortByNameA_Z()'><b>testSortByNameA_Z</b><br>Test class: com.qa.swaglabs.tests.PLPTest<br>Test method: Verify sort products by name in ascending alphabetical oreder (A to Z)</td>
 <td></td>
 <td>0</td>
-<td>com.qa.swaglabs.tests.CheckoutTest@367ffa75</td></tr>
+<td>com.qa.swaglabs.tests.PLPTest@62ddbd7e</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.LoginTest.testLoginWithInvalidCredentials()'><b>testLoginWithInvalidCredentials</b><br>Test class: com.qa.swaglabs.tests.LoginTest<br>Test method: Verify login fails with invalid credentials</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.LoginTest@30c15d8b</td></tr>
+<tr>
+<td title='com.qa.swaglabs.tests.CheckoutTest.testFillCheckoutForm()'><b>testFillCheckoutForm</b><br>Test class: com.qa.swaglabs.tests.CheckoutTest<br>Test method: Verify user can fill checkout form with valid data</td>
+<td></td>
+<td>0</td>
+<td>com.qa.swaglabs.tests.CheckoutTest@74e52ef6</td></tr>
 </table><p>
 </body>
 </html>
