@@ -56,7 +56,7 @@ public class CheckoutTest extends BaseTest{
 				CheckoutTestData.ValidData.LASTNAME, 
 				CheckoutTestData.ValidData.ZIP
 				);	
-		cartPage.wiatForCartPage();
+		
 		checkoutPage.clickContinueButton();
 	}
 
