@@ -1,8 +1,6 @@
 package com.qa.swaglabs.pages;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 
 
@@ -35,13 +33,5 @@ public class LoginPage extends BasePage{
 		return driver.findElement(errorMessage).getText();
 	}
 	
-	public void handleAlertIfPresent() {
-		try {
-			Alert alert = driver.switchTo().alert();
-			alert.accept();
-			
-		} catch (NoAlertPresentException e) {
-			
-		}
-	}
+	
 }
