@@ -21,8 +21,7 @@ This project contains automated UI tests for the Swag Labs web application using
 - End-to_End (E2E) Tests
 
 # Project Structure
-- src/main/java → Page Objects 
-- src/test/java → Test cases & Test data
+- src/test/java → Test cases, Page Objects, Test data
 - pom.xml → Maven dependencies
 - testng.xml → Test suite configuration
 
