@@ -5,11 +5,10 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class OverviewPage extends BasePage{
+public class CheckoutStepTwoPage extends BasePage{
 
-	public OverviewPage(WebDriver driver) {
+	public CheckoutStepTwoPage(WebDriver driver) {
 		super(driver);
 	}
 	
@@ -21,36 +20,40 @@ public class OverviewPage extends BasePage{
 	private By productPrice = By.cssSelector("[data-test=\"inventory-item-price\"]");
 	
 	public void clickCancelButton() {
-		wait.until(ExpectedConditions.elementToBeClickable(cancelButton)).click();
+		clickElement(cancelButton);
 	}
 	
 	public void clickFinishButton() {
-		wait.until(ExpectedConditions.elementToBeClickable(finishButton)).click();
+		clickElement(finishButton);
 	}
 	
 	public Double getTax() {
-		String taxText = wait.until(ExpectedConditions.visibilityOfElementLocated(tax)).getText();
+		String taxText = getText(tax);
 		taxText = taxText.replace("Tax: ", "").trim();
 		
 		return Double.parseDouble(taxText.replace("$", ""));
 	}
 	
 	public Double getTotalPrice() {
-		String totalText = wait.until(ExpectedConditions.visibilityOfElementLocated(total)).getText();
+		String totalText = getText(total);
 		totalText = totalText.replace("Total: ", "").trim();
 		
 		return Double.parseDouble(totalText.replace("$", ""));
 	}
 	
-	public Double getProductPrices() {
-		List<WebElement> cards = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(products));
-		Double sumPrices = 0.0;
+	public Double getSumOfProductPrices() {
+		List<WebElement> cards = waitVisibilityOfAllElement(products);
+		double sumPrices = 0.0;
 		
 		for (WebElement card : cards) {
 			Double price = Double.parseDouble(card.findElement(productPrice).getText().replace("$", ""));
 			sumPrices = price + sumPrices;
 		}
 		
-		return sumPrices;
+		return round(sumPrices);
+	}
+	
+	private double round(Double value) {
+		return Math.round(value * 100.0) /100.0;
 	}
 }

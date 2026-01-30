@@ -15,8 +15,8 @@ public class InventoryPage extends BasePage{
 		super(driver);
 	}
 	
-	private By burgerMenuButton = By.id("react-burger-menu-btn");
-	private By resetButton = By.id("reset_sidebar_link");
+	//private By burgerMenuButton = By.id("react-burger-menu-btn");
+	//private By resetButton = By.id("reset_sidebar_link");
 	
 	private By cartBadge = By.cssSelector("[data-test='shopping-cart-badge']");
 	private By cartButton = By.cssSelector("[data-test='shopping-cart-link']");
@@ -27,16 +27,14 @@ public class InventoryPage extends BasePage{
 	private By productName = By.cssSelector("[data-test='inventory-item-name']");
 	private By productPrice = By.cssSelector("[data-test='inventory-item-price']");
 		
-	
+	/*
 	public void resetAppState() {
-		wait.until(ExpectedConditions.elementToBeClickable(burgerMenuButton)).click();
-		wait.until(org.openqa.selenium.support.ui.ExpectedConditions
-	            .elementToBeClickable(resetButton)).click();
+		clickElement(burgerMenuButton);
+		clickElement(resetButton);
 	}
-	
+	*/
 	public void addItem(String itemId) {
-		wait.until(org.openqa.selenium.support.ui.ExpectedConditions
-	            .elementToBeClickable(By.id(itemId))).click();
+		clickElement(By.id(itemId));
 	}
 	
 	public int getCartBadgeCount() {
@@ -45,7 +43,7 @@ public class InventoryPage extends BasePage{
 	}
 	
 	public void openCart() {
-		wait.until(ExpectedConditions.elementToBeClickable(cartButton)).click();
+		clickElement(cartButton);
 	}
 	
 	public void sortByValue(String value) {
@@ -58,20 +56,19 @@ public class InventoryPage extends BasePage{
 	
 	
 	public List<String> getAllProductNames() {		
-		List<WebElement> cards = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(productCard));
+		List<WebElement> cards = waitVisibilityOfAllElement(productCard);
 		List<String> productNamesList = new ArrayList<>();
 		
 		for (WebElement card : cards) {
 			String name = card.findElement(productName).getText();
 			productNamesList.add(name);
 		}
-		return productNamesList;
-				
+		return productNamesList;				
 	}
 	
 	public List<Double> getAllProductPrices() {
 		
-		List<WebElement> cards = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(productCard));
+		List<WebElement> cards = waitVisibilityOfAllElement(productCard);
 		List<Double> productPricesList = new ArrayList<>();
 		
 		for (WebElement card : cards) {
@@ -82,8 +79,7 @@ public class InventoryPage extends BasePage{
 	}
 	
 	public void goToProductPage(String itemId) {
-		wait.until(org.openqa.selenium.support.ui.ExpectedConditions
-	            .elementToBeClickable(By.id(itemId))).click();
+		clickElement(By.id(itemId));
 	}
 	
 	

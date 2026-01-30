@@ -1,5 +1,8 @@
 package com.qa.swaglabs.tests;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -32,9 +35,15 @@ public class BaseTest {
 			case "chrome":
 				default:
 					ChromeOptions chromeOptions = new ChromeOptions();
-					chromeOptions.addArguments("--headless=new");
-					chromeOptions.addArguments("--no-sandbox");
-					chromeOptions.addArguments("--disable-dev-shm-usage");
+					
+					Map<String, Object> prefs = new HashMap<>();
+					prefs.put("credentials_enable_service", false);
+					prefs.put("profile.password_manager_enabled", false);
+
+					chromeOptions.setExperimentalOption("prefs", prefs);
+					//chromeOptions.addArguments("--headless=new");
+					//chromeOptions.addArguments("--no-sandbox");
+					//chromeOptions.addArguments("--disable-dev-shm-usage");
 					WebDriverManager.chromedriver().setup();
 					driver = new ChromeDriver(chromeOptions);
 					break;
@@ -50,4 +59,5 @@ public class BaseTest {
 			driver.quit();			
 		}
 	}
+	
 }

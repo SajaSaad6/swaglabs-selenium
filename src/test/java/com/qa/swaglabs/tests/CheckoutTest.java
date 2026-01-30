@@ -1,16 +1,15 @@
 package com.qa.swaglabs.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.swaglabs.pages.CartPage;
 import com.qa.swaglabs.pages.CheckoutCompletePage;
-import com.qa.swaglabs.pages.CheckoutPage;
+import com.qa.swaglabs.pages.CheckoutStepOnePage;
+import com.qa.swaglabs.pages.CheckoutStepTwoPage;
 import com.qa.swaglabs.pages.InventoryPage;
 import com.qa.swaglabs.pages.LoginPage;
-import com.qa.swaglabs.pages.OverviewPage;
 import com.qa.swaglabs.testdata.CheckoutTestData;
 import com.qa.swaglabs.testdata.InventoryTestData;
 import com.qa.swaglabs.testdata.LoginTestData;
@@ -21,8 +20,8 @@ public class CheckoutTest extends BaseTest{
 	private InventoryPage inventoryPage;
 	private CartPage cartPage;
 	private CheckoutCompletePage checkoutCompletePage;
-	private CheckoutPage checkoutPage;
-	private OverviewPage overviewPage;
+	private CheckoutStepOnePage checkoutStepOnePage;
+	private CheckoutStepTwoPage checkoutStepTwoPage;
 	
 	@BeforeMethod(alwaysRun = true)
 	public void testSetup() {	
@@ -30,34 +29,31 @@ public class CheckoutTest extends BaseTest{
 		inventoryPage = new InventoryPage(driver);
 		cartPage = new CartPage(driver);
 		checkoutCompletePage = new CheckoutCompletePage(driver);
-		checkoutPage = new CheckoutPage(driver);
-		overviewPage = new OverviewPage(driver);
+		checkoutStepOnePage = new CheckoutStepOnePage(driver);
+		checkoutStepTwoPage = new CheckoutStepTwoPage(driver);
 		
 		loginPage.login(
 				LoginTestData.ValidCredential.STANDARD_USER, 
-				LoginTestData.ValidCredential.PASSWORD);
-		
-		loginPage.handleAlertIfPresent();		
+				LoginTestData.ValidCredential.PASSWORD);		
 	}
 	
 	
 	private void navigateToCheckoutForm() {
-		inventoryPage.addItem(InventoryTestData.AddItemsIDs.FLEECEJACKET);
+		inventoryPage.addItem(InventoryTestData.AddItemsIDs.BLOTTSHIRT);
 		inventoryPage.openCart();
-		cartPage.wiatForCartPage();
 		cartPage.clickCheckoutButton();
-		checkoutPage.waitForCheckoutInformationPage();
 	}
 	
 	
 	private void fillCheckoutFormWithValidData() {
-		checkoutPage.fillForm(
+		navigateToCheckoutForm();
+		checkoutStepOnePage.fillForm(
 				CheckoutTestData.ValidData.FIRSTNAME, 
 				CheckoutTestData.ValidData.LASTNAME, 
 				CheckoutTestData.ValidData.ZIP
 				);	
 		
-		checkoutPage.clickContinueButton();
+		checkoutStepOnePage.clickContinueButton();
 	}
 
 	
@@ -66,7 +62,7 @@ public class CheckoutTest extends BaseTest{
 	public void testProceedToCheckoutForm() {
 		navigateToCheckoutForm();
 		
-		Assert.assertTrue(checkoutPage.isRedirectedTo("checkout-step-one.html"),
+		Assert.assertTrue(checkoutStepOnePage.isRedirectedTo("checkout-step-one.html"),
 				"User should redirect to checkout form (step one) page after clicking checkout button. Current URL: " +
 				driver.getCurrentUrl());
 	}
@@ -74,8 +70,7 @@ public class CheckoutTest extends BaseTest{
 	
 	@Test (description = "Verify user can fill checkout form with valid data"
 			)
-	public void testCheckoutForm() {
-		navigateToCheckoutForm();
+	public void testCheckoutForm() {		
 		fillCheckoutFormWithValidData();
 		
 		Assert.assertTrue(cartPage.isRedirectedTo("checkout-step-two.html"),
@@ -87,13 +82,12 @@ public class CheckoutTest extends BaseTest{
 	@Test ( description = "Verify order total calculation is correct on overview page",
 			groups = {"critical"})
 	public void testOrderTotalCalculation() {
-		navigateToCheckoutForm();
 		fillCheckoutFormWithValidData();
 		
-		double itemsTotal = overviewPage.getProductPrices();
-		double tax = overviewPage.getTax();
+		double itemsTotal = checkoutStepTwoPage.getSumOfProductPrices();
+		double tax = checkoutStepTwoPage.getTax();
 		double expectedTotal =itemsTotal + tax;
-		double actualTotal = overviewPage.getTotalPrice();
+		double actualTotal = checkoutStepTwoPage.getTotalPrice();
 		
 		Assert.assertEquals(actualTotal, expectedTotal, 
 				String.format("Total should be %.2f (items: %.2f + tax: %.2f) but was %.2f",
@@ -104,9 +98,8 @@ public class CheckoutTest extends BaseTest{
 	@Test (description = "Verify user can complete order succcessfully",
 			groups = {"e2e", "smoke", "critical"})
 	public void testCompleteOrder() {
-		navigateToCheckoutForm();
 		fillCheckoutFormWithValidData();
-		overviewPage.clickFinishButton();
+		checkoutStepTwoPage.clickFinishButton();
 		
 		Assert.assertEquals(
 				checkoutCompletePage.getConfirmationMessage(), 
@@ -120,14 +113,14 @@ public class CheckoutTest extends BaseTest{
 	public void testCheckoutWithEmptyFirstName() {
 		navigateToCheckoutForm();
 		
-		checkoutPage.fillForm(
+		checkoutStepOnePage.fillForm(
 				"", 
 				CheckoutTestData.ValidData.LASTNAME, 
 				CheckoutTestData.ValidData.ZIP);
 		
-		checkoutPage.clickContinueButton();
+		checkoutStepOnePage.clickContinueButton();
 		
-		Assert.assertEquals(checkoutPage.getErrorMessage(), 
+		Assert.assertEquals(checkoutStepOnePage.getErrorMessage(), 
 				CheckoutTestData.ErrorMessage.EMPTY_FIRST_NAME_FIELD,
 				"System should prevent checkout and display validation error when first name is empty");
 	}
@@ -138,14 +131,14 @@ public class CheckoutTest extends BaseTest{
 	public void testCheckoutWithEmptyLastName() {
 		navigateToCheckoutForm();
 		
-		checkoutPage.fillForm(
+		checkoutStepOnePage.fillForm(
 				CheckoutTestData.ValidData.FIRSTNAME, 
 				"", 
 				CheckoutTestData.ValidData.ZIP);
 		
-		checkoutPage.clickContinueButton();
+		checkoutStepOnePage.clickContinueButton();
 		
-		Assert.assertEquals(checkoutPage.getErrorMessage(), 
+		Assert.assertEquals(checkoutStepOnePage.getErrorMessage(), 
 				CheckoutTestData.ErrorMessage.EMPTY_LAST_NAME_FIELD,
 				"System should prevent checkout and display validation error when last name is empty");
 	}
@@ -156,14 +149,14 @@ public class CheckoutTest extends BaseTest{
 	public void testCheckoutWithEmptyZip() {
 		navigateToCheckoutForm();
 		
-		checkoutPage.fillForm(
+		checkoutStepOnePage.fillForm(
 				CheckoutTestData.ValidData.FIRSTNAME, 
 				CheckoutTestData.ValidData.LASTNAME, 
 				"");
 		
-		checkoutPage.clickContinueButton();
+		checkoutStepOnePage.clickContinueButton();
 		
-		Assert.assertEquals(checkoutPage.getErrorMessage(), 
+		Assert.assertEquals(checkoutStepOnePage.getErrorMessage(), 
 				CheckoutTestData.ErrorMessage.EMPTY_POSTAL_CODE_FIELD,
 				"System should prevent checkout and display validation error when Zip Code is empty");
 	}
@@ -175,6 +168,7 @@ public class CheckoutTest extends BaseTest{
 		inventoryPage.openCart();
 		
 		cartPage.clickCheckoutButton();
+		
 		boolean isStillOnCartPage = driver.getCurrentUrl().contains("cart.html");
         boolean isOnCheckoutPage = driver.getCurrentUrl().contains("checkout");
         
@@ -190,20 +184,13 @@ public class CheckoutTest extends BaseTest{
 	@Test (description = "Verify user can return to homepage after completing order",
 	        groups = {"navigation"})
 	public void testReturnToHomepageAfterOrder() {
-		navigateToCheckoutForm();
-		fillCheckoutFormWithValidData();		
-		overviewPage.clickFinishButton();
+		fillCheckoutFormWithValidData();
+	
+		checkoutStepTwoPage.clickFinishButton();		
 		checkoutCompletePage.clickBackHomeButton();
 		
 		Assert.assertTrue(cartPage.isRedirectedTo("inventory.html"),
 				"User should be redirected back to inventory page (home) after clicking 'Back Home' button. " +
 				        "Current URL: " + driver.getCurrentUrl());
 	}
-	
-	
-	@AfterMethod(alwaysRun = true)
-	public void testTeardown() {
-		super.tearDown();
-	}
-	
 }

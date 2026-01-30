@@ -1,10 +1,13 @@
 package com.qa.swaglabs.pages;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -34,5 +37,27 @@ public class BasePage {
 		} catch (NoAlertPresentException e) {
 			log.debug("No alert present. Continuing execution.");
 		}
+	}
+	
+	protected void enterText(By locator, String text) {
+		WebElement el = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		el.clear();
+		el.sendKeys(text);
+	}
+	
+	protected void clickElement(By locator) {
+		wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+	}
+	
+	protected String getText(By locator) {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
+	}
+	
+	protected WebElement waitForElement(By locator) {
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	protected List<WebElement> waitVisibilityOfAllElement(By locator) {
+		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 	}
 }
