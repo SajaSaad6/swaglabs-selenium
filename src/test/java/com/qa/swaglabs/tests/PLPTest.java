@@ -25,10 +25,8 @@ public class PLPTest extends BaseTest{
 	
 	@BeforeMethod(alwaysRun = true)
 	public void testSetup() {	
-		if (driver == null) {
-			url = "https://www.saucedemo.com/";
-			driver.get(url);
-		}
+		super.setup("chrome");
+		
 		inventoryPage = new InventoryPage(driver);
 		loginPage = new LoginPage(driver);
 		cartPage = new CartPage(driver);		
