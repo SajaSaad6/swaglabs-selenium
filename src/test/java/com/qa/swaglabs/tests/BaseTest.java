@@ -41,7 +41,7 @@ public class BaseTest {
 					prefs.put("profile.password_manager_enabled", false);
 
 					chromeOptions.setExperimentalOption("prefs", prefs);
-					//chromeOptions.addArguments("--headless=new");
+					chromeOptions.addArguments("--headless=new");
 					chromeOptions.addArguments("--no-sandbox");
 					chromeOptions.addArguments("--disable-dev-shm-usage");
 					WebDriverManager.chromedriver().setup();
