@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -25,7 +24,11 @@ public class PLPTest extends BaseTest{
 
 	
 	@BeforeMethod(alwaysRun = true)
-	public void testSetup() {		
+	public void testSetup() {	
+		if (driver == null) {
+			url = "https://www.saucedemo.com/";
+			driver.get(url);
+		}
 		inventoryPage = new InventoryPage(driver);
 		loginPage = new LoginPage(driver);
 		cartPage = new CartPage(driver);		
@@ -34,8 +37,6 @@ public class PLPTest extends BaseTest{
 		loginPage.login(
 				LoginTestData.ValidCredential.STANDARD_USER, 
 				LoginTestData.ValidCredential.PASSWORD);
-		
-		loginPage.handleAlertIfPresent();
 	}
 
 	
@@ -142,10 +143,4 @@ public class PLPTest extends BaseTest{
 		Assert.assertEquals(inventoryPage.getCartBadgeCount(), badgeCount + 1,
 				"Cart badge should increment by 1 after adding product from PDP");
 	}
-
-	
-	 @AfterMethod(alwaysRun = true)
-		public void teardown() {
-			super.tearDown();
-		}
 }

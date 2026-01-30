@@ -1,7 +1,6 @@
 package com.qa.swaglabs.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -24,8 +23,6 @@ public class LoginTest extends BaseTest{
 		loginPage.login(
 				LoginTestData.ValidCredential.STANDARD_USER,
 				LoginTestData.ValidCredential.PASSWORD);
-		
-		loginPage.handleAlertIfPresent();
 		
 		Assert.assertTrue(loginPage.isRedirectedTo("inventory"), 
 				"User should redirected to inventory page after successful login. Current URL: " +
@@ -95,10 +92,5 @@ public class LoginTest extends BaseTest{
 		Assert.assertEquals(loginPage.getErrorMessage(), 
 							LoginTestData.ErrorMessages.INVALID_CREDENTIAL, 
 							"System should reject completely invalid credentials");	
-	}
-	
-	@AfterMethod(alwaysRun = true)
-	public void teardown() {
-		super.tearDown();
 	}
 }
